@@ -16,16 +16,16 @@
     dest: /tmp
     remote_src: yes
 
--name: copying and extracting on remote system
+- name: copying and extracting on remote system
   ansible.builtin.copy:
     src: /tmp/frontend-main/static/
     dest: /usr/share/nginx/html/
     remote_src: yes
 
-  - name: start niginx
-    ansible.builtin.service:
-      name: nginx
-      state: started
+- name: start niginx
+  ansible.builtin.service:
+    name: nginx
+    state: started
 
 
 
