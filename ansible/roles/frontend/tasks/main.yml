@@ -8,9 +8,7 @@
     path: /usr/share/nginx/html
     state: absent
 
-
-
-- name: downloading and unzipping the forntend content
+- name: Downloading and unzipping the forntend content
   ansible.buitlin.unarchive:
     src: https://github.com/roboshop-devops-project/frontend/archive/main.zip
     dest: /tmp
