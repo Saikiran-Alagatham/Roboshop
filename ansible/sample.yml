@@ -1,6 +1,6 @@
--
-  name: sample yml file test
+- name: sample yml file test
   hosts: all
   tasks:
-    ansible.builtin.debug:
-      msg: Hello all
+    - name: print hello
+      ansible.builtin.debug:
+         msg: Hello all
