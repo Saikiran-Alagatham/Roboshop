@@ -20,8 +20,14 @@
     dest: /usr/share/nginx/html/
     remote_src: yes
 
-- name: start niginx
+- name: Copying roboshop config file to frontend
+  ansible.builtin.copy:
+    src: roboshop.conf
+    dest: /etc/nginx/default.d/roboshop.conf
+
+- name: Restart niginx
   ansible.builtin.service:
     name: nginx
-    state: started
+    state: restarted
+    enabled: yes
 
