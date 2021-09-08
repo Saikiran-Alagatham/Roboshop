@@ -9,7 +9,7 @@
     state: absent
 
 - name: Downloading the frontend content
-  ansible.buitlin.unarchive:
+  ansible.builtin.unarchive:
     src: https://github.com/roboshop-devops-project/frontend/archive/main.zip
     dest: /tmp
     remote_src: yes
@@ -25,15 +25,3 @@
     name: nginx
     state: started
 
-
-
-# /tmp/frontend.zip "https://github.com/roboshop-devops-project/frontend/archive/main.zip"
-
-
-  # unzip /tmp/frontend.zip
-  # mv frontend-main/* .
-  # mv static/* .
-  # rm -rf frontend-master static
-  # mv localhost.conf /etc/nginx/default.d/roboshop.conf\
-
-# systemctl restart nginx
