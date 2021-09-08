@@ -1,1 +1,5 @@
-- name: Sample playbook
+- name: sample yml file test
+  hosts: all
+  tasks:
+    ansible.builtin.debug:
+      msg: Hello all
