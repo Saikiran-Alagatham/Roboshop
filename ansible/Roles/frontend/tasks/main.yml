@@ -1,0 +1,9 @@
+- name: Installing niginx
+  ansible.builtin.yum:
+    name: nginx
+    state: installed
+
+
+
+
+
