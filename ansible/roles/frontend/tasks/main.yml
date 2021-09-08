@@ -3,14 +3,39 @@
     name: nginx
     state: installed
 
-
-
-- name: start niginx
-  ansible.builtin.service:
-    name: nginx
-    state: started
-
+- name: Removing content from the folder
+  ansible.builtin.file:
+    path: /usr/share/nginx/html
+    state: absent
 
 
 
+- name: downloading and unzipping the forntend content
+  ansible.buitlin.unarchive:
+    src: https://github.com/roboshop-devops-project/frontend/archive/main.zip
+    dest: /tmp
+    remote_src: yes
 
+-name: copying and extracting on remote system
+  ansible.builtin.copy:
+    src: /tmp/frontend-main/static/
+    dest: /usr/share/nginx/html/
+    remote_src: yes
+
+  - name: start niginx
+    ansible.builtin.service:
+      name: nginx
+      state: started
+
+
+
+# /tmp/frontend.zip "https://github.com/roboshop-devops-project/frontend/archive/main.zip"
+
+
+  # unzip /tmp/frontend.zip
+  # mv frontend-main/* .
+  # mv static/* .
+  # rm -rf frontend-master static
+  # mv localhost.conf /etc/nginx/default.d/roboshop.conf\
+
+# systemctl restart nginx
