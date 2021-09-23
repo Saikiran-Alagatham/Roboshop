@@ -17,7 +17,7 @@ resource "aws_security_group" "allow_ssh_single_server"{
     name        = "allow_ssh_single_server"
     description = "allow_ssh_single_server"
 
-    ingrees  {
+    ingress  {
             description     = "SSH"
             from_port       = 22
             to_port         = 22
@@ -28,7 +28,7 @@ resource "aws_security_group" "allow_ssh_single_server"{
         }
     
 
-    engress    {
+    egress    {
             from_port   = 0
             to_port     = 0
             protocol    = "-1"
