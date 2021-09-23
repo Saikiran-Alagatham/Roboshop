@@ -7,7 +7,7 @@ resource "aws_spot_instance_request" "cheap_worker" {
     spot_price              = "0.0032"
     wait_for_fulfillment    = true
 
-    tags {
+    tags = {
         Name    = element(var.components,count.index)
     }
 }
