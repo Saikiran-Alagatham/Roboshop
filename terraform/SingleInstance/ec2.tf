@@ -8,7 +8,7 @@ resource "aws_instance" "singleServer"{
     instance_type           = "t2.micro"
     vpc_security_group_ids  = [aws_security_group.allow_ssh_single_server.id]
 
-    tag     = {
+    tags    = {
         name    = "roboshopSingle"
     }
 }
