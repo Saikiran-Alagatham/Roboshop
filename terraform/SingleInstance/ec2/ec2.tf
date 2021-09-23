@@ -5,7 +5,7 @@ resource "aws_instance" "SingleInstance"{
     vpc_security_group_ids = [var.sg_id]
 
     tags    = {
-        name    = "roboshopSingle"
+        Name    = "roboshopSingle"
     }
 }
 
