@@ -3,9 +3,9 @@ provider "aws"{
 }
 
 resource "aws_instance" "singleS3" {
-    ami                     = "ami"
+    ami                     = "ami-074df373d6bafa625"
     instance_type           = "t2.micro"
-    vpc_security_group_ids  = []
+    vpc_security_group_ids  = [aws_security_group.allow_ssh_single_server.id]
 
     tags        = {
         name    = "singleWithS3"
