@@ -12,22 +12,10 @@ resource "aws_spot_instance_request" "cheap_worker" {
     }
 }
 
-resource "aws_security_group" "allow_ssh" {
-    name            =   "allow_ssh"
-    description     =   "allow_ssh"
-
-    ingress{
-        description     = "allow_ssh"
-        from_port       = 22
-        to_port         = 22
-        protocol        = "tcp"
-       // cidr_port       = ["0.0.0.0/0"]
-    }
-
-    egress{
-        from_port       = 0
-        to_port         = 0
-        protocol        = "-1"
-     //   cidr_port       = ["0.0.0.0/0"]
-    }
+resource "aws_ec2_tag" "name-tag"{
+    count                   = length(var.components)
+    resource_id             = element(aws_spot_instance_request.cheap_worker.*.spot_instance_id, count.index)
+    key                     = "Name"
+    value                   = element(var.components,count.index)
 }
+
