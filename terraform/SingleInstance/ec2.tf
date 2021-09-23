@@ -15,7 +15,6 @@ resource "aws_instance" "singleServer"{
 resource "aws_security_group" "allow_ssh_single_server"{
     name        = "allow_ssh_single_server"
     description = "allow_ssh_single_server"
-    vpc_id      = 
 
     ingrees     = [
         {
