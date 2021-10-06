@@ -36,7 +36,7 @@ resource "null_resource" "running_shell_scripting" {
         
         connection {
             host                = element(aws_spot_instance_request.cheap_worker.*.public_ip, count.index)
-            username            = "centos"
+            user            = "centos"
             password            = "DevOps321"
 
         } 
