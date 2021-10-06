@@ -30,13 +30,13 @@ resource "aws_route53_record" "routing" {
 
 
 resource "null_resource" "running_shell_scripting" {
+    depends_on              = [aws_route53_record.routing]
     count                   = length(var.components)
-
     provisioner "remote-exec" {
         
         connection {
             host                = element(aws_spot_instance_request.cheap_worker.*.public_ip, count.index)
-            user            = "centos"
+            user                = "centos"
             password            = "DevOps321"
 
         } 
