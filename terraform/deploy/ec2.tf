@@ -30,7 +30,7 @@ resource "aws_route53_record" "routing" {
 
 
 resource "null_resource" "running_shell_scripting" {
-    # depends_on              = [aws_route53_record.routing]
+    depends_on              = [aws_route53_record.routing]
     # count                   = length(var.components)
     provisioner "remote-exec" {
         
