@@ -19,6 +19,7 @@ resource "aws_ec2_tag" "name-tag"{
 
 
 resource "aws_route53_record" "routing" {
+    count               = length(var.components)
     name                = element(var.components,count.index)
     type                = "A"
     zone_id             = "Z07887073609GNEKE5JLH"
