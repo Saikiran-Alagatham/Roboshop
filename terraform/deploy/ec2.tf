@@ -35,7 +35,7 @@ resource "null_resource" "running_shell_scripting" {
     provisioner "remote-exec" {
         
         connection {
-            host                = element(aws_spot_instance_request.cheap_worker.*.public_ip, count.index)
+            host                = element(aws_spot_instance_request.cheap_worker.*.private_ip, count.index)
             user                = "centos"
             password            = "DevOps321"
 
