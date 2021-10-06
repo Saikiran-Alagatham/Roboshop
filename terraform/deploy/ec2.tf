@@ -23,19 +23,19 @@ resource "aws_route53_record" "routing" {
     name                = element(var.components,count.index)
     type                = "A"
     zone_id             = "Z07887073609GNEKE5JLH"
-    ttl                 = 300
+    ttl                 = 180
     records             = [element(aws_spot_instance_request.cheap_worker.*.private_ip, count.index)]    
   
 }
 
 
 resource "null_resource" "running_shell_scripting" {
-    depends_on              = [aws_route53_record.routing]
-    count                   = length(var.components)
+    # depends_on              = [aws_route53_record.routing]
+    # count                   = length(var.components)
     provisioner "remote-exec" {
         
         connection {
-            host                = element(aws_spot_instance_request.cheap_worker.*.public_ip, count.index)
+            host                = "34.235.116.183"
             user                = "centos"
             password            = "DevOps321"
 
@@ -44,8 +44,8 @@ resource "null_resource" "running_shell_scripting" {
         inline  = [
             "cd /home/centos",
             "git clone https://DevOps-Batches@dev.azure.com/DevOps-Batches/DevOps57/_git/shell_scripting",
-            "cd shell_scripting/roboshop",
-            "sudo make ${element(var.components,count.index)}"
+            "cd shell-scripting/roboshop",
+            "sudo make frontend"
 
         ]
 
