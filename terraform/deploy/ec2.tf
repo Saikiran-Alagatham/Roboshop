@@ -35,7 +35,7 @@ resource "null_resource" "running_shell_scripting" {
     provisioner "remote-exec" {
         
         connection {
-            host                = "34.235.116.183"
+            host                = "172.31.18.182"
             user                = "centos"
             password            = "DevOps321"
 
