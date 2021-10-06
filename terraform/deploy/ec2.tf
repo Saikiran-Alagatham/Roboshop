@@ -2,7 +2,7 @@ resource "aws_spot_instance_request" "cheap_worker" {
     count                   = length(var.components)
     ami                     = "ami-074df373d6bafa625"
     instance_type           = "t2.micro"
-    vpc_security_group_ids = ["sg-04371d9790f1294b1"]
+    vpc_security_group_ids = ["sg-f08091d9"]
     wait_for_fulfillment    = true
 
     tags = {
