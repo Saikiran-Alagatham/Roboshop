@@ -18,7 +18,7 @@ terraform{
         bucket  = "roboshop-s3"
         key     = "roboshop/terraform.tfstate"
         region  = "us-east-1"
-        dynomodb_table = "terraform"
+        dynamodb_table = "terraform"
     }
 }
 
