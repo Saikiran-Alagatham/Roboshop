@@ -53,5 +53,5 @@ resource "null_resource" "run-shell-scripting" {
 }
 
 locals {
-  LENGTH    = length(var.components)
+  LENGTH    = length(var.COMPONENTS)
 }
