@@ -8,12 +8,12 @@ resource "aws_instance" "cheap_worker" {
   }
 }
 
-resource "aws_ec2_tag" "name-tag" {
-  count                     = local.LENGTH
-  resource_id               = element(aws_instance.cheap_worker.*.public_ip, count.index)
-  key                       = "Name"
-  value                     = element(var.COMPONENTS, count.index)
-}
+# resource "aws_ec2_tag" "name-tag" {
+#   count                     = local.LENGTH
+#   resource_id               = element(aws_instance.cheap_worker.*.public_ip, count.index)
+#   key                       = "Name"
+#   value                     = element(var.COMPONENTS, count.index)
+# }
 
 resource "aws_security_group" "allow_ssh_single_server" {
     name            = "allow_ssh_single_server"
@@ -42,7 +42,7 @@ resource "aws_route53_record" "records" {
   count                     = local.LENGTH
   name                      = element(var.COMPONENTS, count.index)
   type                      = "A"
-  zone_id                   = "Z07887073609GNEKE5JLH"
+  zone_id                   = "Z01414971KCYV58O2RRFG"
   ttl                       = 300
   records                   = [element(aws_instance.cheap_worker.*.private_ip, count.index)]
 }
