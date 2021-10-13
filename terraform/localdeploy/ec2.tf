@@ -40,6 +40,8 @@ resource "aws_security_group" "allow_ssh_single_server" {
 
 
 
+
+
 resource "null_resource" "run-shell-scripting" {
   count                     = local.LENGTH
   provisioner "local-exec" {
