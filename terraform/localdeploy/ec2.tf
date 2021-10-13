@@ -37,28 +37,6 @@ resource "aws_security_group" "allow_ssh_single_server" {
 
 
 
-
-
-
-
-
-resource "null_resource" "run-shell-scripting" {
-  count                     = local.LENGTH
-  provisioner "local-exec" {
-    connection {
-      user                  = "centos"
-      password              = "DevOps321"
-    }
-
-    command = "cd /home/centos"
-    command = "git clone https://DevOps-Batches@dev.azure.com/DevOps-Batches/DevOps57/_git/shell-scripting",
-    command = "cd shell-scripting/roboshop",
-    command = "git pull",
-    command = "sudo make ${element(var.COMPONENTS, count.index)}"
-    ]
-  }
-}
-
 locals {
   LENGTH    = length(var.COMPONENTS)
 }
