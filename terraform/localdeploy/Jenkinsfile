@@ -1,0 +1,17 @@
+pipeline{
+    agent any
+
+    stage('Terraform InIt'){
+        steps{
+            sh 'cd terraform/localdeploy; terraform init'
+        }
+
+    }
+
+    stage('Terraform destroy'){
+        steps{
+            sh 'cd terraform/localdeploy; terraform destroy -auto-approve'
+        }
+
+    }
+}
