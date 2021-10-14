@@ -9,16 +9,6 @@ resource "aws_instance" "cheap_worker" {
 }
 
 
-resource "aws_ec2_tag" "name-tag" {
-  count                     = local.LENGTH
-  resource_id               = element(aws_instance.cheap_worker.*.public_id, count.index)
-  key                       = "Name"
-  value                     = element(var.COMPONENTS, count.index)
-}
-
-
-
-
 resource "aws_route53_record" "records" {
   count                     = local.LENGTH
   name                      = element(var.COMPONENTS, count.index)
