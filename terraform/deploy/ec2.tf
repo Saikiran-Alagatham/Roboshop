@@ -32,7 +32,6 @@ resource "null_resource" "run-shell-scripting" {
 
     inline = [
     "cd /home/centos",
-    "rm -rf *",
     "git clone https://DevOps-Batches@dev.azure.com/DevOps-Batches/DevOps57/_git/shell-scripting",
     "cd shell-scripting/roboshop",
     "git pull",
