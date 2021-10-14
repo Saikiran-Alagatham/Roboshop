@@ -8,12 +8,7 @@ resource "aws_instance" "cheap_worker" {
   }
 }
 
- resource "aws_ec2_tag" "name-tag" {
-   count                     = local.LENGTH
-   resource_id               = element(aws_instance.cheap_worker.*.public_ip, count.index)
-   key                       = "Name"
-   value                     = element(var.COMPONENTS, count.index)
- }
+
 
 
 
